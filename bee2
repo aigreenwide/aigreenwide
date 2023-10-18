@@ -1,0 +1,31 @@
+<LayoutPanel id={id}>
+	<div className={styles.component}>
+		<CloseButton className={styles.closeButton} onClick={handleCloseButton} />
+		<section className="mart-l">
+			<Title className={styles.title}>{texts. title[consultationType]}</Title>
+			<Title className="mart-l" level={3}>{texts.question.title}</Title>
+			<Textarea
+				placeholder={texts.question.placeholder}
+				onChange={setQuestionText}
+				value={questionText}
+				focusOnMount
+			/>
+			<Text size="s" type="caption" className="mart-s">
+				{texts.question. description[consultationType]}
+			</Text>
+		</section>
+
+		<section>
+			<div className={styles.infoContainer}>
+				<img src={specialistAvailable ? texts.waitIcon : texts.nightIcon} alt="" />
+				<div className={styles.info}>{specialistAvailable ? texts.dayInfo : texts.nightInfo}</div>
+			</div>
+			<div className="mart-m">
+				<Button
+					onClick={handleButtonClick}
+					className={!questionText ? styles.disabled : ''}
+				>
+					{texts.buttonText}
+				</Button>
+			</div>
+			<div className="mart-m">
