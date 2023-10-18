@@ -1,0 +1,31 @@
+<PageLayout className={cx}>
+	<IEWarningPopup />
+	<MainBanner top={<PageHeader />} bg={<MainBannerBg />}>
+		<MainBannerHeading className={cx('marb-m')} />
+		<MainBannerText className={cx('marb-xs')} />
+		{/* <MainBannerSmallText className={cx('marb-m')} /> */}
+		<ActionButton className={cx('marr-m', 'marb-s')} />
+		<ConsultationButton />
+	</MainBanner>
+	<Wrapper>
+		<BlockMapper>
+			{({ slug: blockSlug }) => (
+				<div className={cx('marb-xxl', 'mart-l')}>
+				<BlockHeading className={cx('marb-l')} />
+				<BlockSubHeading className={cx('marb-l')} />
+				<IfBlock slug={BlockSlugs.BENEFITS}>
+					<Benefits isMobile={isMobile} slug={blockSlug} />
+				</IfBlock>
+				<IfBlock slug={[BlockSlugs.DOCS, BlockSlugs. HOW_TO]}>
+					<RGrid>
+						<ItemMapper>
+							{(, index) => (
+								<RCol size={4} m={6} s={12} className={cx('padb-s')}>
+									<ItemBenefit icon={blockSlug === BlockSlugs.HOW_TO ? index + 1 : <PdfIcon />}>
+										<ItemTitle />
+										<BenefitExtra />
+									</ItemBenefit>
+								</RCol>
+						</ItemMapper>
+						)}
+					</RGrid>
