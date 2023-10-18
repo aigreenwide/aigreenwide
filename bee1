@@ -1,0 +1,34 @@
+<div className={cx( args: 'numbers')}>
+	{currentOffers.map((offer: PhoneNumberOffer, index : number ) =>
+		isMobile ? (
+			<div
+					className={cx( args: 'numberMobile')}
+					onClick={() => {
+						onClick(offer);
+					}}
+					key={+index}
+			>
+					<div className={cx( args: 'value')}>
+						{ ${offer.number.slice(0, 2)} ${offer.number.slice(2, 5)} ${offer.number.slice(
+							5,
+							8
+						)} ${offer.number.slice(8, 10)} ${offer.number.slice(10, 12)} }
+					</div>
+					{offer.oldPrice ? <div className={cx( args: 'old-price' )}>foffer.oldPrice}&nbsp;p</div> : null}
+					<div className={cx( args: 'price') }>{offer.price}&nbsp;₽</div>
+			</div>
+		): (
+			<div
+				className={cx( args: 'number')}
+				onClick={() => {
+					onClick(offer);
+				}}
+				key={+index}
+			>
+				<div className={cx( args: 'value')}>
+					{ ${offer.number.slice(0, 2)} ${offer.number.slice(2, 5)} ${offer.number.slice(
+					5,
+					8
+					)} ${offer.number.slice(8, 10)} ${offer.number.slice(10, 12)} }
+				</div>
+			</div>
